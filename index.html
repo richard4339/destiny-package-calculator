@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Calculator</title>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -22,7 +24,7 @@
                 var weapons = (parseInt($('#primary').val()) + parseInt($('#special').val()) + parseInt($('#heavy').val())) / 3;
                 $('#weapons').text(weapons);
 
-                var armor = (parseInt($('#helmet').val()) + parseInt($('#gauntlets').val()) + parseInt($('#chestpiece').val()) + parseInt($('#legs').val())) / 4;
+                var armor = (parseInt($('#helmet').val()) + parseInt($('#gauntlets').val()) + parseInt($('#chestpiece').val()) + parseInt($('#legs').val()) + parseInt($('#class-item').val())) / 5;
                 $('#armor').text(armor);
 
                 var pick = "";
@@ -47,22 +49,22 @@
              background-color: #eee;
          }
 
-         .form-signin {
+         .form-calculate {
              max-width: 330px;
              padding: 15px;
              margin: 0 auto;
          }
 
-             .form-signin .form-signin-heading,
-             .form-signin .checkbox {
+             .form-calculate .form-control-heading,
+             .form-calculate .checkbox {
                  margin-bottom: 10px;
              }
 
-             .form-signin .checkbox {
+             .form-calculate .calculate-output {
                  font-weight: normal;
              }
 
-             .form-signin .form-control {
+             .form-calculate .form-control {
                  position: relative;
                  height: auto;
                  -webkit-box-sizing: border-box;
@@ -72,17 +74,24 @@
                  font-size: 16px;
              }
 
-                 .form-signin .form-control:focus {
+                 .form-calculate .form-control:focus {
                      z-index: 2;
                  }
 
-             .form-signin input[type="email"] {
+             .form-calculate .form-control-middle {
+                 border-top-left-radius: 0;
+                 border-top-right-radius: 0;
+                 border-bottom-right-radius: 0;
+                 border-bottom-left-radius: 0;
+             }
+
+             .form-calculate .form-control-top {
                  margin-bottom: -1px;
                  border-bottom-right-radius: 0;
                  border-bottom-left-radius: 0;
              }
 
-             .form-signin input[type="password"] {
+             .form-calculate .form-control-bottom {
                  margin-bottom: 10px;
                  border-top-left-radius: 0;
                  border-top-right-radius: 0;
@@ -92,30 +101,32 @@
 <body>
 
     <div class="container">
-        <div class="form-signin">
-            <h2 class="form-signin-heading">Enter Weapon Light Levels</h2>
+        <div class="form-calculate">
+            <h2 class="form-control-heading">Enter Weapon Light Levels</h2>
             <label for="primary" class="sr-only">Primary</label>
-            <input type="number" id="primary" class="form-control" placeholder="primary" autofocus>
+            <input type="number" id="primary" class="form-control form-control-top" placeholder="Primary" autofocus>
             <label for="special" class="sr-only">Special</label>
-            <input type="number" class="form-control" id="special" placeholder="special">
+            <input type="number" class="form-control form-control-middle" id="special" placeholder="Special">
             <label for="heavy" class="sr-only">Heavy</label>
-            <input type="number" class="form-control" id="heavy" placeholder="heavy">
+            <input type="number" class="form-control form-control-bottom" id="heavy" placeholder="Heavy">
 
-            <div class="checkbox">
+            <div class="calculate-output">
                 <label id="weapons"></label>
             </div>
 
-            <h2 class="form-signin-heading">Enter Armor Light Levels</h2>
+            <h2 class="form-control-heading">Enter Armor Light Levels</h2>
             <label for="helmet" class="sr-only">Helmet</label>
-            <input type="number" id="helmet" class="form-control" placeholder="helmet" autofocus>
+            <input type="number" id="helmet" class="form-control form-control-top" placeholder="Helmet">
             <label for="gauntlets" class="sr-only">Gauntlets</label>
-            <input type="number" class="form-control" id="gauntlets" placeholder="gauntlets">
+            <input type="number" class="form-control form-control-middle" id="gauntlets" placeholder="Gauntlets">
             <label for="chestpiece" class="sr-only">Chestpiece</label>
-            <input type="number" class="form-control" id="chestpiece" placeholder="chestpiece">
+            <input type="number" class="form-control form-control-middle" id="chestpiece" placeholder="Chestpiece">
             <label for="legs" class="sr-only">Legs</label>
-            <input type="number" class="form-control" id="legs" placeholder="legs">
+            <input type="number" class="form-control form-control-middle" id="legs" placeholder="Legs">
+            <label for="class-item" class="sr-only">Class Item</label>
+            <input type="number" class="form-control form-control-bottom" id="class-item" placeholder="Class">
 
-            <div class="checkbox">
+            <div class="calculate-output">
                 <label id="armor"></label>
             </div>
 
