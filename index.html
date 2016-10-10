@@ -6,17 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Calculator</title>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="vendor/components/jquery/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap-theme.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         $(function () {
             $('#picker').hide();
@@ -43,99 +42,100 @@
     </script>
 
     <style type="text/css">
-         body {
-             padding-top: 40px;
-             padding-bottom: 40px;
-             background-color: #eee;
-         }
+        body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #eee;
+        }
 
-         .form-calculate {
-             max-width: 330px;
-             padding: 15px;
-             margin: 0 auto;
-         }
+        .form-calculate {
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+        }
 
-             .form-calculate .form-control-heading,
-             .form-calculate .checkbox {
-                 margin-bottom: 10px;
-             }
+        .form-calculate .form-control-heading,
+        .form-calculate .checkbox {
+            margin-bottom: 10px;
+        }
 
-             .form-calculate .calculate-output {
-                 font-weight: normal;
-             }
+        .form-calculate .calculate-output {
+            font-weight: normal;
+        }
 
-             .form-calculate .form-control {
-                 position: relative;
-                 height: auto;
-                 -webkit-box-sizing: border-box;
-                 -moz-box-sizing: border-box;
-                 box-sizing: border-box;
-                 padding: 10px;
-                 font-size: 16px;
-             }
+        .form-calculate .form-control {
+            position: relative;
+            height: auto;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 16px;
+        }
 
-                 .form-calculate .form-control:focus {
-                     z-index: 2;
-                 }
+        .form-calculate .form-control:focus {
+            z-index: 2;
+        }
 
-             .form-calculate .form-control-middle {
-                 border-top-left-radius: 0;
-                 border-top-right-radius: 0;
-                 border-bottom-right-radius: 0;
-                 border-bottom-left-radius: 0;
-             }
+        .form-calculate .form-control-middle {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
 
-             .form-calculate .form-control-top {
-                 margin-bottom: -1px;
-                 border-bottom-right-radius: 0;
-                 border-bottom-left-radius: 0;
-             }
+        .form-calculate .form-control-top {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
 
-             .form-calculate .form-control-bottom {
-                 margin-bottom: 10px;
-                 border-top-left-radius: 0;
-                 border-top-right-radius: 0;
-             }
+        .form-calculate .form-control-bottom {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
     </style>
+    <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
 
-    <div class="container">
-        <div class="form-calculate">
-            <h2 class="form-control-heading">Enter Weapon Light Levels</h2>
-            <label for="primary" class="sr-only">Primary</label>
-            <input type="number" id="primary" class="form-control form-control-top" placeholder="Primary" autofocus>
-            <label for="special" class="sr-only">Special</label>
-            <input type="number" class="form-control form-control-middle" id="special" placeholder="Special">
-            <label for="heavy" class="sr-only">Heavy</label>
-            <input type="number" class="form-control form-control-bottom" id="heavy" placeholder="Heavy">
+<div class="container">
+    <div class="form-calculate">
+        <h2 class="form-control-heading">Enter Weapon Light Levels</h2>
+        <label for="primary" class="sr-only">Primary</label>
+        <input type="number" id="primary" class="form-control form-control-top" placeholder="Primary" autofocus>
+        <label for="special" class="sr-only">Special</label>
+        <input type="number" class="form-control form-control-middle" id="special" placeholder="Special">
+        <label for="heavy" class="sr-only">Heavy</label>
+        <input type="number" class="form-control form-control-bottom" id="heavy" placeholder="Heavy">
 
-            <div class="calculate-output">
-                <label id="weapons"></label>
-            </div>
-
-            <h2 class="form-control-heading">Enter Armor Light Levels</h2>
-            <label for="helmet" class="sr-only">Helmet</label>
-            <input type="number" id="helmet" class="form-control form-control-top" placeholder="Helmet">
-            <label for="gauntlets" class="sr-only">Gauntlets</label>
-            <input type="number" class="form-control form-control-middle" id="gauntlets" placeholder="Gauntlets">
-            <label for="chestpiece" class="sr-only">Chestpiece</label>
-            <input type="number" class="form-control form-control-middle" id="chestpiece" placeholder="Chestpiece">
-            <label for="legs" class="sr-only">Legs</label>
-            <input type="number" class="form-control form-control-middle" id="legs" placeholder="Legs">
-            <label for="class-item" class="sr-only">Class Item</label>
-            <input type="number" class="form-control form-control-bottom" id="class-item" placeholder="Class">
-
-            <div class="calculate-output">
-                <label id="armor"></label>
-            </div>
-
-            <div class="alert alert-success" role="alert" id="picker">
-            </div>
-
-            <button class="btn btn-lg btn-primary btn-block" id="calculate" type="submit">Calculate</button>
+        <div class="calculate-output">
+            <label id="weapons"></label>
         </div>
 
+        <h2 class="form-control-heading">Enter Armor Light Levels</h2>
+        <label for="helmet" class="sr-only">Helmet</label>
+        <input type="number" id="helmet" class="form-control form-control-top" placeholder="Helmet">
+        <label for="gauntlets" class="sr-only">Gauntlets</label>
+        <input type="number" class="form-control form-control-middle" id="gauntlets" placeholder="Gauntlets">
+        <label for="chestpiece" class="sr-only">Chestpiece</label>
+        <input type="number" class="form-control form-control-middle" id="chestpiece" placeholder="Chestpiece">
+        <label for="legs" class="sr-only">Legs</label>
+        <input type="number" class="form-control form-control-middle" id="legs" placeholder="Legs">
+        <label for="class-item" class="sr-only">Class Item</label>
+        <input type="number" class="form-control form-control-bottom" id="class-item" placeholder="Class">
+
+        <div class="calculate-output">
+            <label id="armor"></label>
+        </div>
+
+        <div class="alert alert-success" role="alert" id="picker">
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" id="calculate" type="submit">Calculate</button>
     </div>
+
+</div>
 </body>
 </html>
