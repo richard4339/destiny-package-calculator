@@ -22,10 +22,20 @@
             $('#picker').hide();
             $('#calculate').click(function () {
                 var weapons = (parseInt($('#primary').val()) + parseInt($('#special').val()) + parseInt($('#heavy').val())) / 3;
-                $('#weapons').text(weapons);
+                $('#weapons').text(weapons + " light average");
+
+                if (weapons > 390) {
+                    $('#weapons').text(weapons + " light average - max package value is 390!");
+                    weapons = 390;
+                }
 
                 var armor = (parseInt($('#helmet').val()) + parseInt($('#gauntlets').val()) + parseInt($('#chestpiece').val()) + parseInt($('#legs').val()) + parseInt($('#class-item').val())) / 5;
-                $('#armor').text(armor);
+                $('#armor').text(armor + " light average");
+
+                if (armor > 390) {
+                    $('#armor').text(armor + " light average - max package value is 390!");
+                    armor = 390;
+                }
 
                 var pick = "";
                 if (weapons == armor) {
