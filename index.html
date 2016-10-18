@@ -18,6 +18,7 @@
     <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         $(function () {
+            $('#loading').hide();
             $('#picker').hide();
             $('#calculate').click(function () {
                 var weapons = (parseInt($('#primary').val()) + parseInt($('#special').val()) + parseInt($('#heavy').val())) / 3;
@@ -37,6 +38,36 @@
 
                 $('#picker').text(pick);
                 $('#picker').show();
+            });
+
+            $('#retrieve').click(function () {
+
+                var parms = {
+                    "user": $('#gamertag').val()
+                };
+
+                $('#loading').show();
+                $.getJSON("https://api.guardiandownpodcast.com/getuseritems.php", parms)
+                        .done(function (data) {
+
+                            $('#primary').val(data[0].light);
+                            $('#special').val(data[1].light);
+                            $('#heavy').val(data[2].light);
+
+                            $('#helmet').val(data[3].light);
+                            $('#gauntlets').val(data[4].light);
+                            $('#chestpiece').val(data[5].light);
+                            $('#legs').val(data[6].light);
+                            $('#class-item').val(data[7].light);
+
+                        })
+                        .fail(function () {
+                            console.log("error");
+                        })
+                        .always(function () {
+                            console.log("complete");
+                            $('#loading').hide();
+                        });
             });
         });
     </script>
@@ -97,14 +128,28 @@
         }
     </style>
     <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="icon" href="favicon.png" />
 </head>
 <body>
 
 <div class="container">
     <div class="form-calculate">
+        <h2 class="form-control-heading">Enter Gamertag</h2>
+        <label for="gamertag" class="sr-only">Gamertag</label>
+        <input type="text" id="gamertag" class="form-control form-control-top form-control-bottom"
+               placeholder="Gamertag" autofocus>
+
+        <button class="btn btn-lg btn-primary btn-block" id="retrieve" type="submit">Retrieve</button>
+    </div>
+
+    <div id="loading">
+        <img src="ajax-loader.gif" />
+    </div>
+
+    <div class="form-calculate">
         <h2 class="form-control-heading">Enter Weapon Light Levels</h2>
         <label for="primary" class="sr-only">Primary</label>
-        <input type="number" id="primary" class="form-control form-control-top" placeholder="Primary" autofocus>
+        <input type="number" id="primary" class="form-control form-control-top" placeholder="Primary">
         <label for="special" class="sr-only">Special</label>
         <input type="number" class="form-control form-control-middle" id="special" placeholder="Special">
         <label for="heavy" class="sr-only">Heavy</label>
